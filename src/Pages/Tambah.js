@@ -39,7 +39,7 @@ class Tambah extends Component {
     const self = this;
     axios
       .post(
-        "http://192.168.43.193:8000/books",
+        "http://192.168.43.240:8000/books",
         {
           title: this.state.title,
           author: this.state.author,
@@ -134,7 +134,7 @@ class Tambah extends Component {
               <input
                 type="text"
                 className="form-control"
-                name="desc"
+                name="image"
                 onChange={this.HandleImage}
                 placeholder="image"
                 required

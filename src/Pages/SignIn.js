@@ -22,7 +22,7 @@ class SignIn extends Component {
 		};
 		const self = this;
 		axios
-		  .post("http://192.168.43.193:8000/users/login", data)
+		  .post("http://192.168.43.240:8000/users/login", data)
 		  .then(function(response) {
 			console.log("ayam", response);
 			if (response.data) {
