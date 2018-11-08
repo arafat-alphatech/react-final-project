@@ -6,7 +6,9 @@ import localStorageAdapter from 'unissist/integrations/localStorageAdapter';
 
 const initialState = {
     listBooks: [],
-    book: []
+    book: [],
+    is_login: false,
+    token: ''
 
   };
   
@@ -22,7 +24,6 @@ persistStore(store, adapter);
 const actions = store => ({ 
     getAllBooks:  async (state) => {
         const url = "http://192.168.43.193:8000/public/books"
-        console.log(url)
         await axios
         .get(url)
         .then((response) => {
@@ -36,13 +37,14 @@ const actions = store => ({
     },
     
     handleSearch: async (state, value) => {
-        const url = "http://localhost:5000/api/public/items?judul=" + value
+
+        const url = "http://192.168.43.193:8000/public/books?title=" + value
         console.log(url)
         await axios
         .get(url)
         .then((response) => {
             store.setState({
-                listBooks: response.data.data
+                listBooks: response.data.result.Result
             })
         })
         .catch((err) => {
@@ -50,6 +52,28 @@ const actions = store => ({
         })
     },
 
+    handlePinjam: async (state, book_id, pemilik_id) => {
+
+        const url = "http://192.168.43.193:8000/users/request"
+        const body = {
+            book_id: book_id,
+            owner_id: pemilik_id
+        }        
+        const token = localStorage.getItem("token");
+        const header = {
+            headers: {
+              Authorization: "Bearer " + token
+            }
+        }
+        await axios
+        .post(url, body, header)
+        .then((response) => {
+            alert("Pinjaman berhasil di proses, silahkan tunggu persetujuan pemiliki buku")
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    },
 })
 
 

@@ -9,13 +9,9 @@ import "../App.css";
 class Loading extends Component {
     render() {
       return (
-          <div >
-              <NavBar />
-              <div className="conteiner">
+            <div className="conteiner">
                 <h1 className="text-center" style={{marginTop: 150}} >Loading ...</h1>
-              </div>
-              <Footer />
-          </div>
+            </div>
       );
     }
 }
