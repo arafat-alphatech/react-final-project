@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
-import NavBar from "../Components/NavBar";
-import Footer from "../Components/Footer";
+
 
 import "../App.css";
 
@@ -10,7 +9,7 @@ class Terpinjam extends Component {
     render() {
       return (
           <div >
-                <NavBar />
+               
                 <div className="container" style={{marginTop: 150}}>
                         <table className="table table-hover table-responsive" >
                             <thead className="text-center">
@@ -55,7 +54,7 @@ class Terpinjam extends Component {
                             </tbody>
                         </table>
                 </div>
-                <Footer />
+                
           </div>
       );
     }

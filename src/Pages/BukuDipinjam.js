@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-import NavBar from "../Components/NavBar";
-import Footer from "../Components/Footer";
 import RatingModal from "../Components/RatingModal";
 import "../App.css";
 
@@ -18,7 +16,7 @@ class Dipinjam extends Component {
         return (
 
             <div >
-                <NavBar />
+               
                 <div className="container" style={{marginTop: 50}}>
                         <h3 className="mb-4">Daftar Buku Dipinjam</h3>
                         <table className="table table-hover table-responsive" >
@@ -66,7 +64,7 @@ class Dipinjam extends Component {
                 <RatingModal modal_id={"modal1"}/>
                 <RatingModal modal_id={"modal2"}/>
 
-                <Footer />
+            
             </div>
       );
     }

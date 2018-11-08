@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-import NavBar from "../Components/NavBar";
-import Footer from "../Components/Footer";
 import Search from "../Components/Search";
 import CardBooks from "../Components/CardBooks";
 
@@ -11,7 +9,6 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <NavBar />
                 <div className="Home">
                     <br />
                     {/* doSearch={this.handleInputChange} keyword={this.state.search} */}
@@ -50,7 +47,6 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
-                <Footer />
             </div>
         );
     }
