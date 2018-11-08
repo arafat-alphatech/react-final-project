@@ -7,64 +7,48 @@ import { actions } from "../store";
 
 class SignUp extends Component{
     state = {
-        name: '',
-        username: '',
-        email: '',
-        password: '',
-        alamat: '',
-        no_telp: '',
-        usernameExist: false,
-        emailExist: false
-    }
-
-    // handle data username dan email yang sama dari DB
-    inputHandler(name){
-        const url = "http://localhost:5000/api/users/register"
-
-        const body = {
-            name: this.state.name,
-            username: this.state.username,
-            email: this.state.email,
-            password: this.state.password,
-            alamat: this.state.alamat,
-            no_telp: this.state.no_telp
-        }
-        const self = this
-        // console.log(name)
+        name: "",
+        telephone: "",
+        password: "",
+        address:""
+      };
+      
+      HandleName = event => {
+        this.setState({ name: event.target.value });
+      };
+      HandleTelp = event => {
+        this.setState({ telephone: event.target.value });
+      };
+      HandlePassword = event => {
+        this.setState({ password: event.target.value });
+      };
+      HandleAddress = event => {
+        this.setState({ address: event.target.value });
+      };
+    
+      handlePost = event => {
+        event.preventDefault();
+        const self = this;
         axios
-        .post(url + "/" + name, body)
-        .then((response) => {
-            console.log("Response: ", response)
-
-            if(name === "username" && this.state.usernameExist){
-                self.setState({usernameExist: false})            
+          .post(
+            "http://192.168.43.193:8000/users/register",
+            {
+              name: this.state.name,
+              telephone: this.state.telephone,
+              password: this.state.password,
+              address: this.state.address,
+            
             }
-
-            if(name === "email" && this.state.emailExist){
-                self.setState({emailExist: false})            
-            }
-        })
-        .catch((err) => {
-            if(name === "username"){
-                self.setState({usernameExist: true})            
-            }
-
-            if(name === "email"){
-                self.setState({emailExist: true})            
-            }
-            console.log(err)
-        })
-    }
-
-    changeInput = e => {
-        if(e.target.value.length > 3){
-            console.log(e.target.value)
-            if(e.target.name === 'username' || e.target.name === 'email' )
-            this.inputHandler(e.target.name)
-        }
-
-        this.setState({[e.target.name]: e.target.value});
-    };
+          )
+          .then(result => {
+            self.props.history.push("/signin");
+            alert("sucess");
+          })
+          .catch(function(error) {
+            console.log(error);
+            alert("error");
+          });
+      };
 
     render(){
         return (
@@ -80,20 +64,20 @@ class SignUp extends Component{
 										<h5 className="card-title">The Books Signup</h5>
 									</div>
 
-									<form className="form-signin" onSubmit={e => e.preventDefault()}>
+									<form className="form-signin" onSubmit={this.handlePost}>
                                         <div className="form-label-group">
-                                            <input name="name" type="text" className="form-control" placeholder="name" required autoFocus onChange={(e) => this.changeInput(e)}/>
+                                            <input name="name" type="text" className="form-control" placeholder="name" required autoFocus onChange={this.HandleName}/>
                                         </div>
                                         <div className="form-label-group">
-                                            <input name="no_telp" type="text" className="form-control" placeholder="nomor telepon"  onChange={(e) => this.changeInput(e)}/>
+                                            <input name="telephone" type="text" className="form-control" placeholder="nomor telepon"  onChange={this.HandleTelp}/>
                                         </div>
                                         <div className="form-label-group">
-                                            <input name="password" type="password" className="form-control" placeholder="password" required onChange={(e) => this.changeInput(e)}/>
+                                            <input name="password" type="password" className="form-control" placeholder="password" required onChange={this.HandlePassword}/>
                                         </div>
                                         <div className="form-label-group">
-                                            <input name="alamat" type="text" className="form-control" placeholder="alamat" required onChange={(e) => this.changeInput(e)}/>
+                                            <input name="address" type="text" className="form-control" placeholder="alamat" required onChange={this.HandleAddress}/>
                                         </div>
-                                        <Link to='/' className="btn btn-lg btn-primary btn-block text-uppercase" onClick={() => this.props.signUpHandle(this.state.name, this.state.username, this.state.email, this.state.password, this.state.alamat, this.state.no_telp)}>Sign up </Link >
+                                        <button className="btn btn-lg btn-primary btn-block text-uppercase" >Sign up </button >
 									</form>
 								</div>
 								<div className="text-center" style={{marginBottom: 20}}>
