@@ -26,8 +26,9 @@ class SignIn extends Component {
 		  .then(function(response) {
 			console.log("ayam", response);
 			if (response.data) {
-			  localStorage.setItem("token", response);
-			  localStorage.setItem("is_login", true);
+			  localStorage.setItem("token", response.data.token);
+				localStorage.setItem("is_login", true);
+				
 			  self.props.history.push("/bukusaya");
 			  alert("Selamat datang");
 			} 

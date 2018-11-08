@@ -12,10 +12,10 @@ class CardUser extends Component {
         Authorization: "Bearer " + token
     } 
     axios
-        .delete("http://0.0.0.0:8000/user/item/"+event.target.value, { headers })
+        .delete("http://192.168.43.193:8000/books/"+event.target.value, { headers })
         .then(result => {
             alert("delete sucess")
-             self.props.history.replace("/profile");
+             self.props.history.replace("/");
         })
         .catch(function (error) {
             console.log(error)
@@ -29,10 +29,11 @@ class CardUser extends Component {
         
                 <><tr>
                  <td>{this.props.key}</td>
-                <td>{this.props.nama}</td>
-                <td>{this.props.price}</td>
-                <td>{this.props.qty}</td>
-                <td>{this.props.desc}</td>
+                <td>{this.props.judul}</td>
+                <td>{this.props.author}</td>
+                <td>{this.props.kategori}</td>
+                <td>{this.props.kondisi}</td>
+                <td>{this.props.kondisi}</td>
                 <td className='fa fa-edit text-warning'> Edit</td>
                 <td className='fa fa-trash text-danger'><input type="button" value={this.props.id} onClick={this.handleDelete}></input></td>
                 </tr>                </ >
