@@ -1,29 +1,29 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { BrowserRouter, Link } from "react-router-dom";
-import Cardbuku from "../Components/Cardbuku";
+import CardUser from "../Components/CardUser";
 import { Redirect } from "react-router-dom";
 
 
-const getAllAdmin = "http://0.0.0.0:8000/user/item";
+const getAllBook = "http://192.168.43.193:8000/books";
 
 class BukuSaya extends Component {
   state = {
-    ListUser: []
+    ListBuku: []
   };
 
   componentDidMount = () => {
     const token = localStorage.getItem("token");
     const self = this;
     axios
-      .get(getAllAdmin, {
+      .get(getAllBook, {
         headers: {
           Authorization: "Bearer " + token
         }
       })
       .then(function(response) {
         // handle success
-        self.setState({ ListUser: response.data.result.Result });
+        self.setState({ ListBuku: response.data.result.Result });
 
         console.log("ambil result admin", response.data);
       })
@@ -33,7 +33,7 @@ class BukuSaya extends Component {
   };
 
   render() {
-    const { ListUser } = this.state;
+    const { ListBuku } = this.state;
     const is_login = JSON.parse(localStorage.getItem("is_login"));
 
     console.log("hasil ambil terakhir admin", this.state);
@@ -62,21 +62,18 @@ class BukuSaya extends Component {
               </tr>
             </thead>
             <tbody>
-              {ListUser.map((item, key) => {
+              {ListBuku.map((item, key) => {
                 console.log("hasil ", key);
                 return (
-                  <Cardbuku
+                  <CardUser
                     delete={this.handleDelete}
                     key={key}
                     id={item.id}
-                    judul={item.id}
-                    author={item.id}
-                    kategori={item.id}
-                    kondisi={item.id}
+                    judul={item.title}
+                    author={item.author}
+                    kategori={item.category}
+                    kondisi={item.condition}
                     status={item.id}
-                   
-                    
-                    
                     
                   />
                 );

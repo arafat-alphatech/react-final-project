@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import NavBar from "../Components/NavBar";
-import Footer from "../Components/Footer";
 import {Link, withRouter} from "react-router-dom";
 import axios from "axios";
 
@@ -72,7 +70,7 @@ class SignUp extends Component{
         return (
             <div>
 
-                <NavBar/>
+              
                 <div className="container" style={{marginTop: 70}}>
 					<div className="row">
 						<div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -105,7 +103,7 @@ class SignUp extends Component{
 						</div>
 					</div>
                 </div>
-                <Footer/>
+               
             </div>
         )
     }

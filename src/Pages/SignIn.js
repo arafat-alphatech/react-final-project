@@ -1,22 +1,42 @@
 import React, { Component } from "react";
 import { Link, withRouter, Redirect } from 'react-router-dom' 
+import axios from "axios";
 
-import NavBar from "../Components/NavBar";
-import Footer from "../Components/Footer";
 
 import { connect } from "unistore/react";
 import { actions } from "../store";
 
 class SignIn extends Component {
 	state = {
-		no_hp: '',
-		password: ''
-	}
-
-	inputChange = (e) => {
-		this.setState({ [e.target.name]: e.target.value})
-		// console.log(e.target.value)
-	}
+		telephone: "",
+		password: ""
+	  };
+	  changeInput = e => {
+		this.setState({ [e.target.name]: e.target.value });
+	  };
+	  postLogin = () => {
+		const { telephone, password } = this.state;
+		const data = {
+			telephone: telephone,
+		  password: password
+		};
+		const self = this;
+		axios
+		  .post("http://192.168.43.193:8000/users/login", data)
+		  .then(function(response) {
+			console.log("ayam", response);
+			if (response.data) {
+			  localStorage.setItem("token", response);
+			  localStorage.setItem("is_login", true);
+			  self.props.history.push("/bukusaya");
+			  alert("Selamat datang");
+			} 
+		  })
+		  .catch(function(error) {
+			console.log(error);
+			alert("Maaf telepon atau password anda tidak valid");
+		  });
+	  };
 	
 
 	render() {
@@ -27,9 +47,9 @@ class SignIn extends Component {
 		
 		return (
 	  
-	  	<div >
+	  	<div>
 			  
-			<NavBar />
+		
 			<div className="container">
 				<div className="row">
 					<div className="col-sm-9 col-md-7 col-lg-5 mx-auto mt-5">
@@ -40,10 +60,10 @@ class SignIn extends Component {
 								</div>
 								<form className="form-signin" onSubmit={(e) => e.preventDefault()}>
 									<div className="form-label-group">
-										<input name="no_hp" type="text" className="form-control" placeholder="nomor handphone" required autoFocus onChange={(e) => this.inputChange(e)}/>
+										<input name="telephone" type="text" className="form-control" placeholder="nomor handphone" required autoFocus onChange={(e) => this.changeInput(e)}/>
 										</div>
 									<div className="form-label-group">
-										<input name="password" type="password" className="form-control" placeholder="password" required onChange={(e) => this.inputChange(e)}/>
+										<input name="password" type="password" className="form-control" placeholder="password" required onChange={(e) => this.changeInput(e)}/>
 										{
 											this.props.login_failed ?
 											<small><i className="text-danger">username atau password anda salah!</i></small>
@@ -51,7 +71,7 @@ class SignIn extends Component {
 											""
 										}
 									</div>
-									<Link to="/signin" onClick={() => this.props.signInHandle(this.state.username, this.state.password) } className="btn btn-lg btn-primary btn-block text-uppercase">Sign in</Link>
+										<Link to="/signin" onClick={() => this.postLogin()} className="btn btn-lg btn-primary btn-block text-uppercase">Sign in</Link>
 								</form>
 							</div>
 							<div className="text-center" style={{marginBottom: 20}}>
@@ -61,7 +81,7 @@ class SignIn extends Component {
 					</div>
 				</div>
 			</div>	
-			<Footer />
+		
 
 		</div>
 	  );

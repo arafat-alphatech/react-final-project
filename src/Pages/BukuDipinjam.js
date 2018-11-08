@@ -1,17 +1,24 @@
 import React, { Component } from "react";
 
-import NavBar from "../Components/NavBar";
-import Footer from "../Components/Footer";
-
+import RatingModal from "../Components/RatingModal";
 import "../App.css";
 
 
-class Terpinjam extends Component {
+class Dipinjam extends Component {
+
+    ratingChange = (e) => {
+        console.log(e.target.name)
+
+    }
+
     render() {
-      return (
-          <div >
-                <NavBar />
-                <div className="container" style={{marginTop: 150}}>
+        
+        return (
+
+            <div >
+               
+                <div className="container" style={{marginTop: 50}}>
+                        <h3 className="mb-4">Daftar Buku Dipinjam</h3>
                         <table className="table table-hover table-responsive" >
                             <thead className="text-center">
                                 <tr>
@@ -21,6 +28,7 @@ class Terpinjam extends Component {
                                     <th>Tanggal Pinjam</th>
                                     <th>Tanggal Kembali</th>
                                     <th>Peminjam</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -32,33 +40,34 @@ class Terpinjam extends Component {
                                     <td>20-11-2018</td>
                                     <td>27-11-2018</td>
                                     <td>Bayu</td>
-                                    <td>Belum Kembali</td>
+                                    <td>Sudah Kembali</td>
+                                    <td>
+                                        <button type="button" className="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal1" disabled> Beri Rating </button>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>fffffffffffffffffffffffffffffffffffffffasdsasdasd asdasdasdas</td>
+                                    <td>ffffffffffffffff asdasdasdas</td>
                                     <td>Komik</td>
                                     <td>Bagus</td>
                                     <td>20-11-2018</td>
                                     <td>27-11-2018</td>
                                     <td>Bayu</td>
-                                    <td>Belum Kembali</td>
-                                </tr>
-                                <tr>
-                                    <td>fffffffffffffffffffffffffffffffffffffffasdsasdasd asdasdasdas</td>
-                                    <td>Komik</td>
-                                    <td>Bagus</td>
-                                    <td>20-11-2018</td>
-                                    <td>27-11-2018</td>
-                                    <td>Bayu</td>
-                                    <td>Belum Kembali</td>
+                                    <td>Sudah Kembali</td>
+                                    <td>
+                                        <button type="button" className="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal2"> Beri Rating </button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                 </div>
-                <Footer />
-          </div>
+
+                <RatingModal modal_id={"modal1"}/>
+                <RatingModal modal_id={"modal2"}/>
+
+            
+            </div>
       );
     }
 }
 
-export default Terpinjam;
+export default Dipinjam;

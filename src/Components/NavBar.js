@@ -15,10 +15,10 @@ class NavBar extends Component {
     // console.log("is login: ", this.props.is_login)
     return (
       <>
-        
-		<nav className=" navbar navbar-expand-md navbar-light bg-info ">
+
+        <nav className=" navbar navbar-expand-md navbar-light bg-info ">
           <div className="logo-box">
-		  <h1 ><Link to="/" className='text-white'>The Books</Link></h1>
+            <h1 ><Link to="/" className='text-white'>The Books</Link></h1>
           </div>
           <button
             className="navbar-toggler"
@@ -33,77 +33,88 @@ class NavBar extends Component {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
-            
+
             </ul>
-			<ul className=" nav navbar-nav  ">
-            {/* {this.props.is_login ? (
+            <ul className=" nav navbar-nav  ">
+              {/* {this.props.is_login ? (
                 "" */}
               {/* ) : ( */}
-                <li className="nav-item">
-                  <Link to="/signin" className="nav-link text-white">
-                    Sign In
+              <li className="nav-item">
+                <Link to="/signin" className="nav-link text-white">
+                  Sign In
                   </Link>
-                </li>
+              </li>
               {/* )} */}
               {/* {this.props.is_login ? ( */}
-                {/* "" */}
+              {/* "" */}
               {/* ) : ( */}
-                <li className="nav-item">
-                  <Link to="/signup" className="nav-link text-white">
-                    Sign Up
+              <li className="nav-item">
+                <Link to="/signup" className="nav-link text-white">
+                  Sign Up
                   </Link>
-                </li>
+              </li>
               {/* )} */}
               {/* {this.props.is_login ? ( */}
-                <li className="nav-item">
-                  <Link
-                    to="/"
-                    className="nav-link text-white"
-                    onClick={() => this.handleLogout()}
-                  >
-                    Sign Out
+              <li className="nav-item">
+                <Link
+                  to="/"
+                  className="nav-link text-white"
+                  onClick={() => this.handleLogout()}
+                >
+                  Sign Out
                   </Link>
-                </li>
+              </li>
               {/* ) : (
                 ""
               )} */}
-          </ul>
+            </ul>
           </div>
-		  
+
         </nav>
-		<nav className="navbar navbar-expand navbar-light bg-light">
-        <ul className=" nav navbar-nav mx-3 ">
-          <li className="nav-item  mr-4">
-            <Link to='/bukusaya' className="nav-link text-info strong" >
-              Buku Saya
-            </Link>
-          </li>
-          <li className="nav-item mr-4">
-            <a className="nav-link text-info strong " href="#">
-              Permintaan Pinjam
-            </a>
-          </li>
-		  <li className="nav-item mr-4">
-            <a className="nav-link text-info strong  " href="#">
-              Pinjaman Saya
-            </a>
-          </li>
-		  <li className="nav-item mr-4">
-            <a className="nav-link text-info strong  " href="#">
-              Pinjaman Anda
-            </a>
-          </li>
-          <li className="nav-item mr-4">
-            <a className="nav-link text-info strong " href="#">
-              Buku Terpinjam 
-            </a>
-          </li>
-          
-        </ul>
-        
-      </nav>
-		
-        
+        <nav className="navbar navbar-expand navbar-light bg-light">
+          <ul className=" nav navbar-nav mx-3 ">
+            <li className="nav-item  mr-4">
+              <Link to="/bukusaya" className="nav-link text-info strong">
+                <i class="fas fa-book">
+                  &nbsp; Buku Saya
+            </i>
+              </Link>
+            </li>
+            <li className="nav-item mr-4">
+              <Link className="nav-link text-info strong " to="/permintaan-pinjam">
+                <i class="fas fa-arrow-circle-down">
+                  &nbsp; Permintaan Pinjam
+            </i>
+              </Link>
+            </li>
+            <li className="nav-item mr-4">
+              <Link className="nav-link text-info strong  " to="/buku-dipinjam">
+                <i class="fas fa-arrow-circle-down">
+                  &nbsp; Buku Dipinjam
+              </i>
+              </Link>
+            </li>
+            <li className="nav-item mr-4">
+              <Link className="nav-link text-info strong  " to="/permintaan-saya">
+                <i class="fas fa-arrow-circle-up">
+                  &nbsp;Permintaan Saya
+            </i>
+              </Link>
+            </li>
+            <li className="nav-item mr-4">
+              <Link className="nav-link text-info strong " to="/buku-terpinjam">
+                <i class="fas fa-arrow-circle-up">
+                  &nbsp;Buku Terpinjam
+              </i>
+              </Link>
+            </li>
+
+          </ul>
+
+        </nav>
+
+
+
       </>
     );
   }
