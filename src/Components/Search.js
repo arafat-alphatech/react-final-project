@@ -11,7 +11,7 @@ const Search = props => {
           </div>
           <input
             type="text"
-            class="form-control is-valid"
+            class="form-control"
             name="search"
             id="search"
             value={props.keyword}

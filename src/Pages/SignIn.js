@@ -27,7 +27,7 @@ class SignIn extends Component {
 		
 		return (
 	  
-	  	<div style={{marginTop: 60}}>
+	  	<div>
 			  
 			<NavBar />
 			<div className="container">
@@ -51,7 +51,7 @@ class SignIn extends Component {
 											""
 										}
 									</div>
-									<Link to="/signin" onClick={() => this.props.signInHandle(this.state.username, this.state.password) } className="btn btn-lg btn-primary btn-block text-uppercase">Sign in</Link>
+										<Link to="/signin" onClick={() => this.props.signInHandle(this.state.username, this.state.password) } className="btn btn-lg btn-primary btn-block text-uppercase">Sign in</Link>
 								</form>
 							</div>
 							<div className="text-center" style={{marginBottom: 20}}>
