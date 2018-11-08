@@ -58,6 +58,11 @@ const Permintaanpinjam = Loadable({
   loading: () => <Loading />
 });
   
+const EditBook = Loadable({
+  loader: () => import(/* webpackChunkName: "permintaansaya"*/ "../Pages/EditBook"),
+  loading: () => <Loading />
+});
+
 const MainRoute = () => {
   return (
     <Switch>
@@ -68,9 +73,10 @@ const MainRoute = () => {
       <Route exact path="/buku-dipinjam" component={BukuDipinjam} />
       <Route exact path="/bukusaya" component={BukuSaya} />
       <Route exact path="/tambah" component={Tambah} />
-      <Route path="/book/:id" component={PublicDetailBuku} />
       <Route path="/permintaansaya" component={Permintaansaya} />
       <Route path="/permintaanpinjam" component={Permintaanpinjam} />
+      <Route path="/book/:id" component={PublicDetailBuku} />
+      <Route path="/edit/:id" component={EditBook} />
       <Route component={NotMatch} />
     </Switch>
   );
