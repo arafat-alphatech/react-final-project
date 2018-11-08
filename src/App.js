@@ -7,11 +7,11 @@ class App extends Component {
 
   render() {
     return (
-      <>
-      <NavBar/>
-      <MainRoute />
-      <Footer/>
-    </>
+      <div style={{paddingBottom:100}}>
+        <NavBar/>
+        <MainRoute />
+        <Footer/>
+      </div>
     )
   }
 }

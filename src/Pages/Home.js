@@ -4,9 +4,19 @@ import Search from "../Components/Search";
 import CardBooks from "../Components/CardBooks";
 
 import "../App.css";
+import { withRouter} from 'react-router-dom' 
+import { connect } from "unistore/react";
+import { actions } from "../store";
+
 
 class Home extends Component {
+
+    componentWillMount = () => {
+        this.props.getAllBooks()
+    }
+
     render() {
+        const listBooks = this.props.listBooks
         return (
             <div>
                 <div className="Home">
@@ -18,30 +28,18 @@ class Home extends Component {
                         <div className="col-md-12">
                             <div className="row">
 
-                                {/* {CardBooks.map((item, key) => {
-                      console.log("hasil nama", item.nama);
-                      return (
-                          <CardGallery
-                          key={key}
-                          id={item.id}
-                          nama={item.nama}
-                          desc={item.desc}
-                          price={item.price}
-                          qty={item.qty}
-                          img={item.image_url}
-                          />
-                          );
-                        })} */}
-
-                                <CardBooks />
-                                <CardBooks />
-                                <CardBooks />
-                                <CardBooks />
-                                <CardBooks />
-                                <CardBooks />
-                                <CardBooks />
-                                <CardBooks />
-                                <CardBooks />
+                                {
+                                    listBooks.map((item, key) => {
+                                        return (
+                                            <CardBooks
+                                            key={key}
+                                            id={item.id}
+                                            title={item.title}
+                                            image={item.image}
+                                            />
+                                            );
+                                    })
+                                }
 
                             </div>
                         </div>
@@ -52,4 +50,4 @@ class Home extends Component {
     }
 }
 
-export default Home;
+export default connect("listBooks", actions)(withRouter(Home))

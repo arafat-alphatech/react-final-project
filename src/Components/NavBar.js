@@ -75,35 +75,35 @@ class NavBar extends Component {
           <ul className=" nav navbar-nav mx-3 ">
             <li className="nav-item  mr-4">
               <Link to="/bukusaya" className="nav-link text-info strong">
-                <i class="fas fa-book">
+                <i className="fas fa-book">
                   &nbsp; Buku Saya
             </i>
               </Link>
             </li>
             <li className="nav-item mr-4">
               <Link className="nav-link text-info strong " to="/permintaan-pinjam">
-                <i class="fas fa-arrow-circle-down">
+                <i className="fas fa-arrow-circle-down">
                   &nbsp; Permintaan Pinjam
             </i>
               </Link>
             </li>
             <li className="nav-item mr-4">
               <Link className="nav-link text-info strong  " to="/buku-dipinjam">
-                <i class="fas fa-arrow-circle-down">
+                <i className="fas fa-arrow-circle-down">
                   &nbsp; Buku Dipinjam
               </i>
               </Link>
             </li>
             <li className="nav-item mr-4">
               <Link className="nav-link text-info strong  " to="/permintaan-saya">
-                <i class="fas fa-arrow-circle-up">
+                <i className="fas fa-arrow-circle-up">
                   &nbsp;Permintaan Saya
             </i>
               </Link>
             </li>
             <li className="nav-item mr-4">
               <Link className="nav-link text-info strong " to="/buku-terpinjam">
-                <i class="fas fa-arrow-circle-up">
+                <i className="fas fa-arrow-circle-up">
                   &nbsp;Buku Terpinjam
               </i>
               </Link>
