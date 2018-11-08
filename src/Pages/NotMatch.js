@@ -13,7 +13,7 @@ class NotMatch extends Component {
               <NavBar />
               <div className="container testing-purpose">
                 <div className="text-center" style={{marginTop: 150}}>
-                    <img src={notFound}/>
+                    <img alt="not found" src={notFound}/>
                 </div>
               </div>
               <Footer />
