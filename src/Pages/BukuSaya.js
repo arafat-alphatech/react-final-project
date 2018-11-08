@@ -46,7 +46,7 @@ class BukuSaya extends Component {
         <button className='btn btn-success ' ><Link to='/tambah' className='text-white'>Tambah Data</Link></button>
           <br></br>
           <Link to='/tambah' className='text-white'>Tambah Buku</Link>
-          <table className="table table-striped">
+          <table className="table table-striped ">
             <thead>
               <tr className="text-center border">
                 <th />

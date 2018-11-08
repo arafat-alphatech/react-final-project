@@ -47,6 +47,16 @@ const PublicDetailBuku = Loadable({
   loader: () => import(/* webpackChunkName: "Dipinjam"*/ "../Components/CardBooksDetail"),
   loading: () => <Loading />
 });
+
+const Permintaansaya = Loadable({
+  loader: () => import(/* webpackChunkName: "permintaansaya"*/ "../Pages/Permintaansaya"),
+  loading: () => <Loading />
+});
+
+const Permintaanpinjam = Loadable({
+  loader: () => import(/* webpackChunkName: "permintaansaya"*/ "../Pages/Permintaanpinjam"),
+  loading: () => <Loading />
+});
   
 const MainRoute = () => {
   return (
@@ -59,6 +69,8 @@ const MainRoute = () => {
       <Route exact path="/bukusaya" component={BukuSaya} />
       <Route exact path="/tambah" component={Tambah} />
       <Route path="/book/:id" component={PublicDetailBuku} />
+      <Route path="/permintaansaya" component={Permintaansaya} />
+      <Route path="/permintaanpinjam" component={Permintaanpinjam} />
       <Route component={NotMatch} />
     </Switch>
   );

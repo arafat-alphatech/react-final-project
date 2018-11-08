@@ -10,9 +10,9 @@ class NotMatch extends Component {
       return (
           <div>
             
-              <div className="container testing-purpose">
+              <div className="container testing-purpose  ">
                 <div className="text-center" style={{marginTop: 150}}>
-                    <img alt="not found" src={notFound}/>
+                    <img alt="not found" src={notFound}  />
                 </div>
               </div>
             

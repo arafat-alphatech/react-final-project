@@ -10,7 +10,8 @@ class Terpinjam extends Component {
       return (
           <div >
                
-                <div className="container" style={{marginTop: 150}}>
+               <div className="container" style={{marginTop: 50}}>
+                        <h3 className="mb-4">Daftar Buku Terpinjam</h3>
                         <table className="table table-hover table-responsive" >
                             <thead className="text-center">
                                 <tr>
