@@ -12,7 +12,7 @@ class CardUser extends Component {
         Authorization: "Bearer " + token
     } 
     axios
-        .delete("http://192.168.43.240:8000/books/" + id , { headers })
+        .delete("http://192.168.43.193:8000/books/" + id , { headers })
         .then(result => {
             alert("delete sucess")
              self.props.history.replace("/");

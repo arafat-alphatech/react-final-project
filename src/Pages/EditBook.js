@@ -26,6 +26,34 @@ class Tambah extends Component {
       console.log(error);
       alert("Error");
     }); 
+    
+    const id = this.props.match.params.id
+    const token = localStorage.getItem("token");
+    const header = {
+      headers: {
+        Authorization: "Bearer " + token
+      }
+    }
+    
+    axios
+    .get("http://192.168.43.193:8000/books/" + id, header)
+    .then(result => {
+      const data = result.data.results[0]
+      self.setState({ 
+        title: data.title,
+        author: data.author,
+        category: data.category,
+        condition: data.condition,
+        desc: data.desc,
+        image: data.image
+      })      
+      console.log(result.data.results[0])
+    })
+    .catch(function(error) {
+      console.log(error);
+      alert("Error");
+    });
+
   }
 
   HandleTitle = event => {
@@ -50,11 +78,11 @@ class Tambah extends Component {
   handlePost = event => {
     event.preventDefault();
     let token = localStorage.getItem("token");
-    console.log(token, "ss");
+    const id = this.props.match.params.id
     const self = this;
     axios
-      .post(
-        "http://192.168.43.193:8000/books",
+      .put(
+        "http://192.168.43.193:8000/books/" + id,
         {
           title: this.state.title,
           author: this.state.author,
@@ -71,7 +99,7 @@ class Tambah extends Component {
       )
       .then(result => {
         self.props.history.push("/bukusaya");
-        alert("Tambah buku berhasil!");
+        alert("Update buku berhasil!");
       })
       .catch(function(error) {
         console.log(error);
@@ -86,7 +114,7 @@ class Tambah extends Component {
 					<div className="row">
 						<div className='card col-md-12 col-xs-12'>
           <br />
-          <h3 className="text-center text-danger">Tambah Buku</h3>
+          <h3 className="text-center text-danger">Edit Data Buku</h3>
           
           <form onSubmit={this.handlePost}>
             <div className="form-group col-md-12 col-xs-12">
@@ -95,6 +123,7 @@ class Tambah extends Component {
                 type="text"
                 className="form-control"
                 name="title"
+                value={this.state.title}
                 onChange={this.HandleTitle}
                 placeholder="Judul Buku"
                 required
@@ -106,6 +135,7 @@ class Tambah extends Component {
                 type="text"
                 className="form-control"
                 name="author"
+                value={this.state.author}
                 id="desc"
                 onChange={this.HandleAuthor}
                 placeholder="Author"
@@ -114,7 +144,7 @@ class Tambah extends Component {
             </div>
             <div className="form-group col-md-12 col-xs-12">
               <label htmlFor="inputAddress2">Category</label>
-              <select name="category" className="form-control" onChange={this.HandleCategory}>
+              <select name="category" value={this.state.category} className="form-control" onChange={this.HandleCategory}>
                   {
                     categoryList.map((item, key) => {
                       return  <option key={key} value={item} >{item}</option>
@@ -128,6 +158,7 @@ class Tambah extends Component {
                 type="text"
                 className="form-control"
                 name="condition"
+                value={this.state.condition}
                 onChange={this.HandleCondition}
                 placeholder="kondisi"
                 required
@@ -139,6 +170,7 @@ class Tambah extends Component {
                 type="text"
                 className="form-control"
                 name="desc"
+                value={this.state.desc}
                 onChange={this.HandleDesc}
                 placeholder="Desc"
                 required
@@ -150,6 +182,7 @@ class Tambah extends Component {
                 type="text"
                 className="form-control"
                 name="image"
+                value={this.state.image}
                 onChange={this.HandleImage}
                 placeholder="image"
                 required
@@ -157,7 +190,7 @@ class Tambah extends Component {
             </div>
             <div className='text-center'>
               <button type="submit " className="btn btn-primary mx-auto">
-                Tambah
+                Update
               </button>
               
             </div>

@@ -31,7 +31,7 @@ class SignUp extends Component{
         const self = this;
         axios
           .post(
-            "http://192.168.43.240:8000/users/register",
+            "http://192.168.43.193:8000/users/register",
             {
               name: this.state.name,
               telephone: this.state.telephone,
