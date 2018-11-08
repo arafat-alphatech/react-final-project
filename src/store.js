@@ -5,7 +5,8 @@ import persistStore from 'unissist'
 import localStorageAdapter from 'unissist/integrations/localStorageAdapter';
 
 const initialState = {
-    listBooks: []
+    listBooks: [],
+    book: []
 
   };
   
@@ -18,8 +19,22 @@ process.env.NODE_ENV === "production"
 const adapter = localStorageAdapter();
 persistStore(store, adapter);
 
-const actions = store => ({
- 
+const actions = store => ({ 
+    getAllBooks:  async (state) => {
+        const url = "http://192.168.43.193:8000/public/books"
+        console.log(url)
+        await axios
+        .get(url)
+        .then((response) => {
+            store.setState({
+                listBooks: response.data.result.Result
+            })
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    },
+    
     handleSearch: async (state, value) => {
         const url = "http://localhost:5000/api/public/items?judul=" + value
         console.log(url)
