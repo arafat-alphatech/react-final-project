@@ -10,7 +10,7 @@ import { actions } from "../store";
 
 
 class Home extends Component {
-
+   
     componentWillMount = () => {
         this.props.getAllBooks()
     }

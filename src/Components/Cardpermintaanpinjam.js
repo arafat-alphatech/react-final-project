@@ -10,14 +10,11 @@ class Cardpermintaan extends Component {
     return (
         
       <tr>
-        <td>{this.props.key}</td>
-        <td>{this.props.judul}</td>
-        <td>{this.props.author}</td>
-        <td>{this.props.kategori}</td>
-       
-        <td>{this.props.kondisi}</td>
+        <td>{this.props.title} </td>
+        <td>{this.props.name}</td>
+        <td>{this.props.address}</td>
+        <td>{this.props.telephone}</td>
         <td className="text-center"> 
-          
           <a className='fa fa-times-circle text-danger' onClick={() => this.handleDelete(this.props.id)}>Batal</a>
         </td>
 
