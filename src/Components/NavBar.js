@@ -74,9 +74,9 @@ class NavBar extends Component {
 		<nav className="navbar navbar-expand navbar-light bg-light">
         <ul className=" nav navbar-nav mx-3 ">
           <li className="nav-item  mr-4">
-            <a className="nav-link text-info strong" href="#">
+            <Link to='/bukusaya' className="nav-link text-info strong" >
               Buku Saya
-            </a>
+            </Link>
           </li>
           <li className="nav-item mr-4">
             <a className="nav-link text-info strong " href="#">

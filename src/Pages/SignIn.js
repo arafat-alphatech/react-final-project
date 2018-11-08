@@ -27,7 +27,7 @@ class SignIn extends Component {
 		
 		return (
 	  
-	  	<div style={{marginTop: 60}}>
+	  	<div >
 			  
 			<NavBar />
 			<div className="container">
