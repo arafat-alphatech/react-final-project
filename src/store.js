@@ -65,6 +65,7 @@ const actions = store => ({
               Authorization: "Bearer " + token
             }
         }
+        console.log(body)
         await axios
         .post(url, body, header)
         .then((response) => {

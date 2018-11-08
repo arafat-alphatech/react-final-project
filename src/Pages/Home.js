@@ -34,6 +34,7 @@ class Home extends Component {
                                             <CardBooks
                                             key={key}
                                             id={item.id}
+                                            owner_id={item.owner_id}
                                             title={item.title}
                                             image={item.image}
                                             />

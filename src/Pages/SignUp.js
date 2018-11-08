@@ -41,7 +41,9 @@ class SignUp extends Component{
             }
           )
           .then(result => {
-            self.props.history.push("/signin");
+            this.props.token = result.data.token
+            this.props.is_login = true
+            self.props.history.push("/");
             alert("sucess");
           })
           .catch(function(error) {
