@@ -23,13 +23,13 @@ const Home = Loadable({
   loading: () => <Loading />
 });
 
-const Terpinjam = Loadable({
-  loader: () => import(/* webpackChunkName: "terpinjam"*/ "../Pages/Dipinjam"),
+const BukuDipinjam = Loadable({
+  loader: () => import(/* webpackChunkName: "terpinjam"*/ "../Pages/BukuDipinjam"),
   loading: () => <Loading />
 });
 
-const Dipinjam = Loadable({
-  loader: () => import(/* webpackChunkName: "Dipinjam"*/ "../Pages/Dipinjam"),
+const BukuTerpinjam = Loadable({
+  loader: () => import(/* webpackChunkName: "Dipinjam"*/ "../Pages/BukuTerpinjam"),
   loading: () => <Loading />
 });
 
@@ -40,8 +40,8 @@ const MainRoute = () => {
       <Route exact path="/" component={Home} />
       <Route exact path="/signin" component={SignIn} />
       <Route exact path="/signup" component={SignUp} />
-      <Route exact path="/terpinjam" component={Terpinjam} />
-      <Route exact path="/dipinjam" component={Dipinjam} />
+      <Route exact path="/buku-terpinjam" component={BukuTerpinjam} />
+      <Route exact path="/buku-dipinjam" component={BukuDipinjam} />
       <Route component={NotMatch} />
     </Switch>
   );
