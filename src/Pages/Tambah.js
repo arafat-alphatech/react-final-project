@@ -56,7 +56,7 @@ class Tambah extends Component {
       )
       .then(result => {
         self.props.history.push("/bukusaya");
-        alert("sucess");
+        alert("Tambah buku berhasil!");
       })
       .catch(function(error) {
         console.log(error);
@@ -71,22 +71,22 @@ class Tambah extends Component {
           <h3 className="text-center text-danger">Tambah Buku</h3>
           
           <form onSubmit={this.handlePost}>
-            <div class="form-group">
-              <label for="inputEmail4">Title</label>
+            <div className="form-group">
+              <label htmlFor="inputEmail4">Title</label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 name="title"
                 onChange={this.HandleTitle}
                 placeholder="Judul Buku"
                 required
               />
             </div>
-            <div class="form-group">
-              <label for="inputPassword4">Author</label>
+            <div className="form-group">
+              <label htmlFor="inputPassword4">Author</label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 name="author"
                 id="desc"
                 onChange={this.HandleAuthor}
@@ -94,44 +94,44 @@ class Tambah extends Component {
                 required
               />
             </div>
-            <div class="form-group">
-              <label for="inputAddress2">Category</label>
+            <div className="form-group">
+              <label htmlFor="inputAddress2">Category</label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 name="category"
                 onChange={this.HandleCategory}
                 placeholder="Category"
                 required
               />
             </div>
-            <div class="form-group">
-              <label for="inputAddress2">kondisi</label>
+            <div className="form-group">
+              <label htmlFor="inputAddress2">kondisi</label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 name="condition"
                 onChange={this.HandleCondition}
                 placeholder="kondisi"
                 required
               />
             </div>
-            <div class="form-group">
-              <label for="inputAddress2">Deskripsi</label>
+            <div className="form-group">
+              <label htmlFor="inputAddress2">Deskripsi</label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 name="desc"
                 onChange={this.HandleDesc}
                 placeholder="Desc"
                 required
               />
             </div>
-            <div class="form-group">
-              <label for="inputAddress2">Image</label>
+            <div className="form-group">
+              <label htmlFor="inputAddress2">Image</label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 name="desc"
                 onChange={this.HandleImage}
                 placeholder="image"
@@ -139,7 +139,7 @@ class Tambah extends Component {
               />
             </div>
             <div>
-              <button type="submit " class="btn btn-primary center-block">
+              <button type="submit " className="btn btn-primary center-block">
                 Tambah
               </button>
             </div>
