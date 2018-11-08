@@ -3,7 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 
 import { connect } from "unistore/react";
 import { actions } from "../store";
-import CardBooks from "../Components/CardBooks";
+
 class NavBar extends Component {
   handleLogout = () => {
     localStorage.removeItem("unistorePersist");
@@ -84,7 +84,7 @@ class NavBar extends Component {
               </Link>
             </li>
             <li className="nav-item mr-4">
-              <Link className="nav-link text-info strong " to="/permintaan-pinjam">
+              <Link className="nav-link text-info strong " to="/permintaanpinjam">
                 <i className="fas fa-arrow-circle-down">
                   &nbsp; Permintaan Pinjam
             </i>
@@ -98,7 +98,7 @@ class NavBar extends Component {
               </Link>
             </li>
             <li className="nav-item mr-4">
-              <Link className="nav-link text-info strong  " to="/permintaan-saya">
+              <Link className="nav-link text-info strong  " to="/permintaansaya">
                 <i className="fas fa-arrow-circle-up">
                   &nbsp;Permintaan Saya
             </i>

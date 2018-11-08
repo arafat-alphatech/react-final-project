@@ -65,13 +65,15 @@ class Tambah extends Component {
   };
   render() {
     return (
-      <div className="container  row">
-        <div className="col-md-6 mx-auto">
+      <div className="container">
+				<div className="col-lg-5 mx-auto mt-5">
+					<div className="row">
+						<div className='card col-md-12 col-xs-12'>
           <br />
           <h3 className="text-center text-danger">Tambah Buku</h3>
           
           <form onSubmit={this.handlePost}>
-            <div className="form-group">
+            <div className="form-group col-md-12 col-xs-12">
               <label htmlFor="inputEmail4">Title</label>
               <input
                 type="text"
@@ -82,7 +84,7 @@ class Tambah extends Component {
                 required
               />
             </div>
-            <div className="form-group">
+            <div className="form-group col-md-12 col-xs-12">
               <label htmlFor="inputPassword4">Author</label>
               <input
                 type="text"
@@ -94,7 +96,7 @@ class Tambah extends Component {
                 required
               />
             </div>
-            <div className="form-group">
+            <div className="form-group col-md-12 col-xs-12">
               <label htmlFor="inputAddress2">Category</label>
               <input
                 type="text"
@@ -105,7 +107,7 @@ class Tambah extends Component {
                 required
               />
             </div>
-            <div className="form-group">
+            <div className="form-group col-md-12 col-xs-12">
               <label htmlFor="inputAddress2">kondisi</label>
               <input
                 type="text"
@@ -116,9 +118,9 @@ class Tambah extends Component {
                 required
               />
             </div>
-            <div className="form-group">
+            <div className="form-group col-md-12 col-xs-12">
               <label htmlFor="inputAddress2">Deskripsi</label>
-              <input
+              <textarea
                 type="text"
                 className="form-control"
                 name="desc"
@@ -127,7 +129,7 @@ class Tambah extends Component {
                 required
               />
             </div>
-            <div className="form-group">
+            <div className="form-group col-md-12 col-xs-12">
               <label htmlFor="inputAddress2">Image</label>
               <input
                 type="text"
@@ -138,13 +140,17 @@ class Tambah extends Component {
                 required
               />
             </div>
-            <div>
-              <button type="submit " className="btn btn-primary center-block">
+            <div className='text-center'>
+              <button type="submit " className="btn btn-primary mx-auto">
                 Tambah
               </button>
+              
             </div>
+            <br></br>
           </form>
         </div>
+      </div>
+      </div>
       </div>
     );
   }
