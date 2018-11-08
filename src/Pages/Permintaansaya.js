@@ -4,15 +4,41 @@ import { withRouter } from 'react-router-dom'
 import { connect } from "unistore/react";
 import { actions } from "../store";
 import Cardpermintaan from "../Components/Cardpermintaan";
+import axios from "axios";
 
+const getAllBook = "http://192.168.43.193:8000/users/request?filter=borrower";
 class Permintaansaya extends Component {
-
-    componentWillMount = () => {
-        this.props.getAllBooks()
-    }
+    state = {
+        ListBuku: []
+      };
+    componentDidMount = () => {
+        const token = localStorage.getItem("token");
+        const self = this;
+        axios
+          .get(getAllBook, {
+            headers: {
+              Authorization: "Bearer " + token
+            }
+          })
+          .then(function(response) {
+            // handle success
+            
+            self.setState({ ListBuku: response.data.result });
+            console.log("hasil",response.data.result)
+            
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+      };
+    
 
     render() {
-        const listBooks = this.props.listBooks
+        const ListBuku = this.state.ListBuku
+        var books = []
+        for (let i= 0; i< ListBuku.length; i++){
+            books.push(ListBuku[i].book)
+        }
         return (
             <div>
                 <div className="Home">
@@ -21,8 +47,7 @@ class Permintaansaya extends Component {
                             <div className="row">
                                 <table className="table table-striped ">
                                     <thead>
-                                        <tr className="text-center border">
-                                            <th />
+                                        <tr className=" border">
                                             <th>Judul Buku</th>
                                             <th>Kategori</th>
                                             <th>Kondisi</th>
@@ -32,19 +57,19 @@ class Permintaansaya extends Component {
                                     </thead>
                                     <tbody>
 
-                                        {/* {
-                                    listBooks.map((item, key) => {
+                                        {
+                                    books.map((item, key) => {
                                         return (
-                                            <CardBooks
+                                            <Cardpermintaan
                                             key={key}
-                                            id={item.id}
                                             title={item.title}
-                                            image={item.image}
+                                            kategori={item.category}
+                                            kondisi={item.condition}
+                                            pemilik={item["users.name"]}
                                             />
                                             );
                                     })
-                                } */}
-                                        <Cardpermintaan />
+                                }
                                     </tbody>
                                 </table>
                             </div>
