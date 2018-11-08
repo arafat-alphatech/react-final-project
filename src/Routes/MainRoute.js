@@ -57,8 +57,8 @@ const MainRoute = () => {
       <Route exact path="/buku-terpinjam" component={BukuTerpinjam} />
       <Route exact path="/buku-dipinjam" component={BukuDipinjam} />
       <Route exact path="/bukusaya" component={BukuSaya} />
-      <Route path="/book/:id" component={PublicDetailBuku} />
       <Route exact path="/tambah" component={Tambah} />
+      <Route path="/book/:id" component={PublicDetailBuku} />
       <Route component={NotMatch} />
     </Switch>
   );

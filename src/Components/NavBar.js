@@ -6,13 +6,13 @@ import { actions } from "../store";
 import CardBooks from "../Components/CardBooks";
 class NavBar extends Component {
   handleLogout = () => {
-    this.props.token = "";
-    this.props.is_login = false;
     localStorage.removeItem("unistorePersist");
+    localStorage.removeItem("token");
+    localStorage.setItem("is_login", false);
   };
 
   render() {
-    // console.log("is login: ", this.props.is_login)
+    const is_login = localStorage.getItem('is_login') === "true"
     return (
       <>
 
@@ -36,37 +36,40 @@ class NavBar extends Component {
 
             </ul>
             <ul className=" nav navbar-nav  ">
-              {/* {this.props.is_login ? (
-                "" */}
-              {/* ) : ( */}
-              <li className="nav-item">
-                <Link to="/signin" className="nav-link text-white">
-                  Sign In
-                  </Link>
-              </li>
-              {/* )} */}
-              {/* {this.props.is_login ? ( */}
-              {/* "" */}
-              {/* ) : ( */}
-              <li className="nav-item">
-                <Link to="/signup" className="nav-link text-white">
-                  Sign Up
-                  </Link>
-              </li>
-              {/* )} */}
-              {/* {this.props.is_login ? ( */}
-              <li className="nav-item">
-                <Link
-                  to="/"
-                  className="nav-link text-white"
-                  onClick={() => this.handleLogout()}
-                >
-                  Sign Out
-                  </Link>
-              </li>
-              {/* ) : (
-                ""
-              )} */}
+              {
+                is_login ? 
+                  ""
+                :
+                  <li className="nav-item">
+                    <Link to="/signin" className="nav-link text-white">
+                      Sign In
+                    </Link>
+                  </li>
+              }
+              {
+                is_login ? 
+                  "" 
+                :  
+                <li className="nav-item">
+                  <Link to="/signup" className="nav-link text-white">
+                    Sign Up
+                    </Link>
+                </li>
+              } 
+              {
+                is_login ?  
+                  <li className="nav-item">
+                    <Link
+                      to="/"
+                      className="nav-link text-white"
+                      onClick={() => this.handleLogout()}
+                    >
+                      Sign Out
+                      </Link>
+                  </li>
+                : 
+                  ""
+              } 
             </ul>
           </div>
 

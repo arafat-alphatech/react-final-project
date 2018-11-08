@@ -24,8 +24,6 @@ class BukuSaya extends Component {
       .then(function(response) {
         // handle success
         self.setState({ ListBuku: response.data.result.Result });
-
-        console.log("ambil result admin", response.data);
       })
       .catch(function(error) {
         console.log(error);
@@ -36,7 +34,6 @@ class BukuSaya extends Component {
     const { ListBuku } = this.state;
     const is_login = JSON.parse(localStorage.getItem("is_login"));
 
-    console.log("hasil ambil terakhir admin", this.state);
     if (is_login === null) {
       return <Redirect to={{ pathname: "/signin" }} />;
     } else {
@@ -49,7 +46,7 @@ class BukuSaya extends Component {
         <button className='btn btn-success ' ><Link to='/tambah' className='text-white'>Tambah Data</Link></button>
           <br></br>
           <Link to='/tambah' className='text-white'>Tambah Buku</Link>
-          <table class="table table-striped">
+          <table className="table table-striped">
             <thead>
               <tr className="text-center border">
                 <th />
@@ -63,7 +60,6 @@ class BukuSaya extends Component {
             </thead>
             <tbody>
               {ListBuku.map((item, key) => {
-                console.log("hasil ", key);
                 return (
                   <CardUser
                     delete={this.handleDelete}
