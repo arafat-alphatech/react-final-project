@@ -36,6 +36,11 @@ const BukuSaya = Loadable({
   loader: () => import(/* webpackChunkName: "Dipinjam"*/ "../Pages/BukuSaya"),
   loading: () => <Loading />
 });
+const Tambah = Loadable({
+  loader: () => import(/* webpackChunkName: "Tambah"*/ "../Pages/Tambah"),
+  loading: () => <Loading />
+});
+
 
   
 const MainRoute = () => {
@@ -47,6 +52,7 @@ const MainRoute = () => {
       <Route exact path="/buku-terpinjam" component={BukuTerpinjam} />
       <Route exact path="/buku-dipinjam" component={BukuDipinjam} />
       <Route exact path="/bukusaya" component={BukuSaya} />
+      <Route exact path="/tambah" component={Tambah} />
       <Route component={NotMatch} />
     </Switch>
   );
