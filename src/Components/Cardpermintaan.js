@@ -14,7 +14,7 @@ class Cardpermintaan extends Component {
         <td>{this.props.kondisi}</td>
         <td>{this.props.kategori}</td>
         <td>{this.props.pemilik}</td>
-        <td className="text-center">
+        <td className="">
           <a className='fa fa-times-circle text-danger' onClick={() => this.handleDelete(this.props.id)}>Batal</a>
         </td>
 

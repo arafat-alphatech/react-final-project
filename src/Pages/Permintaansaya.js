@@ -47,7 +47,7 @@ class Permintaansaya extends Component {
                             <div className="row">
                                 <table className="table table-striped ">
                                     <thead>
-                                        <tr className="text-center border">
+                                        <tr className=" border">
                                             <th>Judul Buku</th>
                                             <th>Kategori</th>
                                             <th>Kondisi</th>
