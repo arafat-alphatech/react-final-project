@@ -23,7 +23,7 @@ persistStore(store, adapter);
 
 const actions = store => ({ 
     getAllBooks:  async (state) => {
-        const url = "http://192.168.43.193:8000/public/books"
+        const url = "http://192.168.43.240:8000/public/books"
         await axios
         .get(url)
         .then((response) => {
@@ -38,7 +38,7 @@ const actions = store => ({
     
     handleSearch: async (state, value) => {
 
-        const url = "http://192.168.43.193:8000/public/books?title=" + value
+        const url = "http://192.168.43.240:8000/public/books?title=" + value
         console.log(url)
         await axios
         .get(url)
