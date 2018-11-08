@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+
+import { withRouter, Link } from "react-router-dom";
+import { connect } from "unistore/react";
+import { actions } from "../store";
 
 class CardBooks extends Component {
   render() {
@@ -17,13 +19,12 @@ class CardBooks extends Component {
             <p className="text-center">{this.props.title}</p>
             <Link className="btn btn-outline-primary" to={route}>Detail</Link>
             &nbsp;
-            <Link className="btn btn-outline-success" to="/">Pinjam</Link>
+            <Link className="btn btn-outline-success" to="/" onClick={() => this.props.handlePinjam(this.props.id, this.props.owner_id)} >Pinjam</Link>
           </div>
         </div>
       </div>
-
     );
   }
 }
 
-export default CardBooks;
+export default connect("listBooks", actions)(withRouter(CardBooks))

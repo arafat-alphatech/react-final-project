@@ -31,7 +31,7 @@ class SignUp extends Component{
         const self = this;
         axios
           .post(
-            "http://192.168.43.193:8000/users/register",
+            "http://192.168.43.240:8000/users/register",
             {
               name: this.state.name,
               telephone: this.state.telephone,
@@ -41,7 +41,9 @@ class SignUp extends Component{
             }
           )
           .then(result => {
-            self.props.history.push("/signin");
+            this.props.token = result.data.token
+            this.props.is_login = true
+            self.props.history.push("/");
             alert("sucess");
           })
           .catch(function(error) {
