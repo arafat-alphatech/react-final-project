@@ -24,7 +24,6 @@ class Permintaansaya extends Component {
             // handle success
             
             self.setState({ ListBuku: response.data.result });
-            console.log("hasil",response.data.result)
             
           })
           .catch(function(error) {
@@ -38,8 +37,12 @@ class Permintaansaya extends Component {
         var books = []
         
         for (let i= 0; i< ListBuku.length; i++){
-            books.push(ListBuku[i].book)
+            let data = ListBuku[i].book
+            data["req_id"] = ListBuku[i].id
+            books.push(data)
         }
+
+        console.log("hasil",books)
 
         return (
             <div>
@@ -64,6 +67,7 @@ class Permintaansaya extends Component {
                                         return (
                                             <Cardpermintaan
                                             key={key}
+                                            id={item.req_id}
                                             title={item.title}
                                             kategori={item.category}
                                             kondisi={item.condition}

@@ -10,9 +10,11 @@ const getAllBook = "http://192.168.43.193:8000/users/request?filter=owner";
 class Permintaanpinjam extends Component {
 
     state = {
-        ListBuku: []
+        ListBuku: [],
+        
     };
-    componentDidMount = () => {
+    
+        componentDidMount = () => {
         const token = localStorage.getItem("token");
         const self = this;
         axios
@@ -54,8 +56,6 @@ class Permintaanpinjam extends Component {
             }
             datas.push(fusion)
         }
-        console.log(datas)
-
         return (
             <div>
                 <div className="Home">
@@ -76,10 +76,11 @@ class Permintaanpinjam extends Component {
                                     <tbody>
 
                                         {
-                                            datas.map((item) => {
+                                            datas.map((item,key) => {
 
                                                 return <Cardpermintaanpinjam
-                                                key={item.title}
+                                                id={item.id}
+                                                key={key}
                                                 title={item.title}
                                                 name={item.name}
                                                 address={item.address}

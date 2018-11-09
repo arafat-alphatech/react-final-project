@@ -24,17 +24,17 @@ const Home = Loadable({
 });
 
 const BukuDipinjam = Loadable({
-  loader: () => import(/* webpackChunkName: "terpinjam"*/ "../Pages/BukuDipinjam"),
+  loader: () => import(/* webpackChunkName: "BukuDipinjam"*/ "../Pages/BukuDipinjam"),
   loading: () => <Loading />
 });
 
 const BukuTerpinjam = Loadable({
-  loader: () => import(/* webpackChunkName: "Dipinjam"*/ "../Pages/BukuTerpinjam"),
+  loader: () => import(/* webpackChunkName: "BukuTerpinjam"*/ "../Pages/BukuTerpinjam"),
   loading: () => <Loading />
 });
 
 const BukuSaya = Loadable({
-  loader: () => import(/* webpackChunkName: "Dipinjam"*/ "../Pages/BukuSaya"),
+  loader: () => import(/* webpackChunkName: "BukuSaya"*/ "../Pages/BukuSaya"),
   loading: () => <Loading />
 });
 const Tambah = Loadable({
@@ -44,22 +44,22 @@ const Tambah = Loadable({
 
 
 const PublicDetailBuku = Loadable({
-  loader: () => import(/* webpackChunkName: "Dipinjam"*/ "../Components/CardBooksDetail"),
+  loader: () => import(/* webpackChunkName: "PublicDetailBuku"*/ "../Components/CardBooksDetail"),
   loading: () => <Loading />
 });
 
 const Permintaansaya = Loadable({
-  loader: () => import(/* webpackChunkName: "permintaansaya"*/ "../Pages/Permintaansaya"),
+  loader: () => import(/* webpackChunkName: "Permintaansaya"*/ "../Pages/Permintaansaya"),
   loading: () => <Loading />
 });
 
 const Permintaanpinjam = Loadable({
-  loader: () => import(/* webpackChunkName: "permintaansaya"*/ "../Pages/Permintaanpinjam"),
+  loader: () => import(/* webpackChunkName: "Permintaanpinjam"*/ "../Pages/Permintaanpinjam"),
   loading: () => <Loading />
 });
   
 const EditBook = Loadable({
-  loader: () => import(/* webpackChunkName: "permintaansaya"*/ "../Pages/EditBook"),
+  loader: () => import(/* webpackChunkName: "EditBook"*/ "../Pages/EditBook"),
   loading: () => <Loading />
 });
 

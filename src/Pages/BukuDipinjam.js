@@ -1,15 +1,13 @@
 import React, { Component } from "react";
 
-import RatingModal from "../Components/RatingModal";
 import "../App.css";
 import axios from "axios";
-
+import Cardbukudipinjam from '../Components/Cardbukudipinjam'
 const getAllBook = "http://192.168.43.193:8000/users/request?filter=borrower&status=true";
 class Dipinjam extends Component {
 
     state = {
-        ListBukuDipinjam: [],
-        List: []
+        ListBuku: []
     };
     componentDidMount = () => {
         const token = localStorage.getItem("token");
@@ -23,12 +21,11 @@ class Dipinjam extends Component {
             .then(function (response) {
                 // handle success
 
-                self.setState({ ListBukuDipinjam: response.data.result });
-                self.setState({ List: response.data });
+                self.setState({ ListBuku: response.data.result });
                 
             })
             .catch(function (error) {
-
+                console.log(error)
             });
     };
 
@@ -39,26 +36,18 @@ class Dipinjam extends Component {
     }
 
     render() {
-        const ListBukuDipinjam = this.state.ListBukuDipinjam
-        const List = this.state.List
-       
-        var fusion = []
-        // var borrow=[]
-        for (let i = 0; i < ListBukuDipinjam.length; i++) {
-            var data = {}
-            for (let key in ListBukuDipinjam[i].book) {
-                if (key === "id") {
-                    data["book_id"] = ListBukuDipinjam[i].book[key]
-                }
-                data[key] = ListBukuDipinjam[i].book[key]
-            }
-            fusion.push(data)
-        }
-        data = fusion[0]
-        for (var key in data){
-            console.log("key: ", key, " data: ", data[key])
-        }
+        const ListBuku = this.state.ListBuku
         
+        var books = []
+        for (let i= 0; i< ListBuku.length; i++){
+            let data = ListBuku[i].book
+            data["req_id"] = ListBuku[i].id
+            data["start_date"] = ListBuku[i].start_date
+            data["end_date"] = ListBuku[i].end_date
+            books.push(data)
+        }
+
+        console.log(books)
         return (
 
             <div >
@@ -74,44 +63,33 @@ class Dipinjam extends Component {
                                     <th>Tanggal Pinjam</th>
                                     <th>Tanggal Kembali</th>
                                     <th>Pemilik</th>
-                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                    {
+                                        books.map((book, key) => {
+                                            let modal_id = "modal" + key
+                                            return (
+                                                <Cardbukudipinjam
+                                                key={key}
+                                                title={book.title}
+                                                category={book.category}
+                                                condition={book.condition}
+                                                start_date={book.start_date}
+                                                end_date={book.end_date}
+                                                name={book['users.name']}
+                                                req_id={book.req_id}
+                                                modal_id={modal_id}
+                                                />
+                                            )
+                                        })
+                                    }
 
-                                    <td>{fusion.title}</td>
-                                    <td>{fusion.category}</td>
-                                    <td>{fusion.condition}</td>
-                                    <td>20-11-2018</td>
-                                    <td>27-11-2018</td>
-                                    <td>{fusion["users.name"]}</td>
-                                    <td>Sudah Kembali</td>
-                                    <td>
-                                        <button type="button" className="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal1" disabled> Beri Rating </button>
-                                    </td>
-                                </tr>
-                                {/* <tr>
-                                    <td>ffffffffffffffff asdasdasdas</td>
-                                    <td>Komik</td>
-                                    <td>Bagus</td>
-                                    <td>20-11-2018</td>
-                                    <td>27-11-2018</td>
-                                    <td>Bayu</td>
-                                    <td>Sudah Kembali</td>
-                                    <td>
-                                        <button type="button" className="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal2"> Beri Rating </button>
-                                    </td>
-                                </tr> */}
                             </tbody>
                         </table>
                 </div>
-
-                <RatingModal modal_id={"modal1"}/>
-                <RatingModal modal_id={"modal2"}/>
-
-            
+                           
             </div>
       );
     }
