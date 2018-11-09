@@ -37,6 +37,7 @@ class Home extends Component {
                                             owner_id={item.owner_id}
                                             title={item.title}
                                             image={item.image}
+                                            lend_status={item.lend_status}
                                             />
                                             );
                                     })

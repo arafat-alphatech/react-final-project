@@ -6,7 +6,7 @@ import { actions } from "../store";
 import Cardpermintaan from "../Components/Cardpermintaan";
 import axios from "axios";
 
-const getAllBook = "http://192.168.43.193:8000/users/request?filter=borrower";
+const getAllBook = "http://192.168.43.240:8000/users/request?filter=borrower";
 class Permintaansaya extends Component {
     state = {
         ListBuku: []
