@@ -32,6 +32,7 @@ class BukuSaya extends Component {
 
   render() {
     const { ListBuku } = this.state;
+    console.log(ListBuku)
     const is_login = JSON.parse(localStorage.getItem("is_login"));
 
     if (is_login === null) {
