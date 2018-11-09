@@ -18,7 +18,14 @@ class CardBooks extends Component {
             <p className="text-center">{this.props.title}</p>
             <Link className="btn btn-outline-primary" to={route}>Detail</Link>
             &nbsp;
-            <Link className="btn btn-outline-success" to="/" onClick={() => this.props.handlePinjam(this.props.id, this.props.owner_id)} >Pinjam</Link>
+            {
+              this.props.lend_status ?              
+
+              <button disable="true" className="btn btn-outline-danger" >Terpinjam</button>
+                :
+              <Link className="btn btn-outline-success" to="/" onClick={() => this.props.handlePinjam(this.props.id, this.props.owner_id)} >Pinjam</Link>
+
+            }
           </div>
         </div>
       </div>

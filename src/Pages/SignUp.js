@@ -39,7 +39,7 @@ class SignUp extends Component{
             
             axios
             .post(
-              "http://192.168.43.193:8000/users/register",
+              "http://54.255.166.203:8000/users/register",
                 {
                   name: this.state.name,
                   telephone: this.state.telephone,
@@ -59,7 +59,7 @@ class SignUp extends Component{
                 console.log(error);
                 alert("error");
               });
-              
+
         //   }
         //   else{
         //     alert("Nomor hp tidak valid!");

@@ -72,8 +72,11 @@ class NavBar extends Component {
               } 
             </ul>
           </div>
-
         </nav>
+
+
+        {
+          is_login ?      
         <nav className="navbar navbar-expand navbar-light bg-light">
           <ul className=" nav navbar-nav mx-3 ">
             <li className="nav-item  mr-4">
@@ -115,7 +118,9 @@ class NavBar extends Component {
           </ul>
 
         </nav>
-
+          :
+          ""
+        }
 
 
       </>

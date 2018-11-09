@@ -11,7 +11,7 @@ class CardBooks extends Component {
 	}
 
 	getBook = () => {
-		const url = "http://192.168.43.193:8000/public/books/" + this.props.match.params.id
+		const url = "http://54.255.166.203:8000/public/books/" + this.props.match.params.id
 		axios
 		.get(url)
 		.then((response) => {
@@ -63,7 +63,14 @@ class CardBooks extends Component {
                                                     </tr>   
                                                 </tbody>
                                             </table>
-											<Link className="btn btn-outline-success" to="/" onClick={() => this.props.handlePinjam(this.state.book.id, this.state.book.owner_id)}>Pinjam</Link>
+											{
+												this.state.book.lend_status ?              
+
+												<button disable="true" className="btn btn-outline-danger" >Terpinjam</button>
+													:
+												<Link className="btn btn-outline-success" to="/" onClick={() => this.props.handlePinjam(this.state.book.id, this.state.book.owner_id)}>Pinjam</Link>
+
+											}
 										</div>
 									</div>
 										

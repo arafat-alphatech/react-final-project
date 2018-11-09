@@ -47,7 +47,6 @@ class Terpinjam extends Component {
             books.push(data)
         }
 
-        console.log(books)
 
     return (    
         
