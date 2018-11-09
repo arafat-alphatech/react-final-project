@@ -18,7 +18,7 @@ class Tambah extends Component {
   componentDidMount = () =>{
     const self = this
     axios
-    .get("http://192.168.43.193:8000/categories")
+    .get("http://54.255.166.203:8000/categories")
     .then(result => {
       self.setState({ categoryList: result.data.result })      
     })
@@ -36,7 +36,7 @@ class Tambah extends Component {
     }
     
     axios
-    .get("http://192.168.43.193:8000/books/" + id, header)
+    .get("http://54.255.166.203:8000/books/" + id, header)
     .then(result => {
       const data = result.data.results[0]
       self.setState({ 
@@ -82,7 +82,7 @@ class Tambah extends Component {
     const self = this;
     axios
       .put(
-        "http://192.168.43.193:8000/books/" + id,
+        "http://54.255.166.203:8000/books/" + id,
         {
           title: this.state.title,
           author: this.state.author,
