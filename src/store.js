@@ -75,6 +75,10 @@ const actions = store => ({
             console.log(err)
         })
     },
+
+    setLogin: (state, token) => {
+        console.log("token ", token)
+    }
 })
 
 

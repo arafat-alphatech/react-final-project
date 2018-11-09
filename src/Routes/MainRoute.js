@@ -63,12 +63,18 @@ const EditBook = Loadable({
   loading: () => <Loading />
 });
 
+const Verify = Loadable({
+  loader: () => import(/* webpackChunkName: "permintaansaya"*/ "../Pages/Verify"),
+  loading: () => <Loading />
+});
+
 const MainRoute = () => {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/signin" component={SignIn} />
       <Route exact path="/signup" component={SignUp} />
+      <Route exact path="/verify" component={Verify} />
       <Route exact path="/buku-terpinjam" component={BukuTerpinjam} />
       <Route exact path="/buku-dipinjam" component={BukuDipinjam} />
       <Route exact path="/bukusaya" component={BukuSaya} />
