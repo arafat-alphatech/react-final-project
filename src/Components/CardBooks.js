@@ -11,11 +11,10 @@ class CardBooks extends Component {
       
       <div className="col-sm-3 mt-5">
         <div className="card w-auto">
-          <img className="card-img-top " src={this.props.image}
+          <img alt="gambar buku" className="card-img-top " src={this.props.image}
           // style={{width: "300px", height:"225px"  }} 
           />
           <div className="card-body">
-            <h5 className="card-title" />
             <p className="text-center">{this.props.title}</p>
             <Link className="btn btn-outline-primary" to={route}>Detail</Link>
             &nbsp;
