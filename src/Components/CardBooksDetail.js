@@ -11,7 +11,7 @@ class CardBooks extends Component {
 	}
 
 	getBook = () => {
-		const url = "http://192.168.43.240:8000/public/books/" + this.props.match.params.id
+		const url = "http://54.255.166.203:8000/public/books/" + this.props.match.params.id
 		axios
 		.get(url)
 		.then((response) => {

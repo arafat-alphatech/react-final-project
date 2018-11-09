@@ -24,7 +24,7 @@ class Verify extends Component {
     const self = this;
     axios
       .post(
-        "http://192.168.43.240:8000/users/register",
+        "http://54.255.166.203:8000/users/register",
         {
           name: this.state.name,
           telephone: this.state.telephone,

@@ -6,7 +6,7 @@ import { actions } from "../store";
 import axios from "axios";
 import Cardpermintaanpinjam from "../Components/Cardpermintaanpinjam";
 
-const getAllBook = "http://192.168.43.240:8000/users/request?filter=owner";
+const getAllBook = "http://54.255.166.203:8000/users/request?filter=owner";
 class Permintaanpinjam extends Component {
 
     state = {

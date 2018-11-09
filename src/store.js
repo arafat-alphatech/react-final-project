@@ -23,7 +23,7 @@ persistStore(store, adapter);
 
 const actions = store => ({ 
     getAllBooks:  async (state) => {
-        const url = "http://192.168.43.240:8000/public/books"
+        const url = "http://54.255.166.203:8000/public/books"
         await axios
         .get(url)
         .then((response) => {
@@ -38,7 +38,7 @@ const actions = store => ({
     
     handleSearch: async (state, value) => {
 
-        const url = "http://192.168.43.240:8000/public/books?title=" + value
+        const url = "http://54.255.166.203:8000/public/books?title=" + value
         console.log(url)
         await axios
         .get(url)
@@ -54,7 +54,7 @@ const actions = store => ({
 
     handlePinjam: async (state, book_id, pemilik_id) => {
 
-        const url = "http://192.168.43.240:8000/users/request"
+        const url = "http://54.255.166.203:8000/users/request"
         const body = {
             book_id: book_id,
             owner_id: pemilik_id
