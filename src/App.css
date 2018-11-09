@@ -1,0 +1,157 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* TAMBAHAN CSS */
+/* FOOTER */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px; /* Set the fixed height of the footer here */
+  line-height: 40px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+.footer .container {
+  width: auto;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* LOGO DI NAVBAR */
+.logo-box > a {
+  margin-right: 15px;
+  color: rgb(173, 169, 169)
+}
+
+.logo-box > a:hover {
+  margin-right: 15px;
+  color: rgb(219, 212, 212);
+  text-decoration: none
+}
+
+/* FORM LOGIN */
+.card-signin {
+  border: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-signin .card-title {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+  }
+  
+  .card-signin .card-body {
+  padding: 2rem;
+  }
+  
+  .form-signin {
+  width: 100%;
+  }
+  
+  .form-signin .btn {
+  font-size: 80%;
+  border-radius: 5rem;
+  letter-spacing: .1rem;
+  font-weight: bold;
+  padding: 1rem;
+  transition: all 0.2s;
+  }
+  
+  .form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
+  }
+  
+  .form-label-group input {
+  border-radius: 2rem;
+  }
+
+  /* FORM SIGNUP */
+  .signup-container{
+    width: 80%;
+    position: relative;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 50px 20px;
+  }
+  
+  #signup-h2 {
+    line-height: 1.66;
+    margin: 0;
+    padding: 0;
+    font-weight: 900;
+    color: #222;
+    /* font-family: 'Montserrat'; */
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 40px; }
+  
+  .form-group {
+      overflow: hidden;
+      margin-bottom: 20px; }
+  
+  .form-input {
+    width: 100%;
+    border: 1px solid #ebebeb;
+    border-radius: 40px;
+    padding: 17px 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 500;
+    color: #222; }
+  
+  .form-submit {
+    width: 100%;
+    border-radius: 40px;
+    padding: 17px 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-weight: 700;
+    color: #130101;
+    text-transform: uppercase;
+    border: none;
+  }
+  
+  .loginhere {
+    font-weight: 500;
+    color: #555;
+    text-align: center;
+    margin-top: 91px;
+    margin-bottom: 5px; 
+  }
