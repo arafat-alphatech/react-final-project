@@ -64,7 +64,7 @@ class SignIn extends Component {
 										<input name="telephone" type="text" className="form-control" placeholder="nomor handphone" required autoFocus onChange={(e) => this.changeInput(e)}/>
 										</div>
 									<div className="form-label-group">
-										<input name="password" type="password" className="form-control" placeholder="password" required onChange={(e) => this.changeInput(e)}/>
+										<input name="password" type="text" className="form-control" placeholder="password" required onChange={(e) => this.changeInput(e)}/>
 										{
 											this.props.login_failed ?
 											<small><i className="text-danger">username atau password anda salah!</i></small>
@@ -72,7 +72,7 @@ class SignIn extends Component {
 											""
 										}
 									</div>
-										<Link to="/signin" onClick={() => this.postLogin()} className="btn btn-lg btn-primary btn-block text-uppercase">Sign in</Link>
+										<Link to="/signin" id='signin' onClick={() => this.postLogin()} className="btn btn-lg btn-primary btn-block text-uppercase" id='signin'>Sign in</Link>
 								</form>
 							</div>
 							<div className="text-center" style={{marginBottom: 20}}>

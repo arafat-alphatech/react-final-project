@@ -36,9 +36,11 @@ class Permintaansaya extends Component {
     render() {
         const ListBuku = this.state.ListBuku
         var books = []
+        
         for (let i= 0; i< ListBuku.length; i++){
             books.push(ListBuku[i].book)
         }
+
         return (
             <div>
                 <div className="Home">

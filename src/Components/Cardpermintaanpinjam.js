@@ -15,7 +15,10 @@ class Cardpermintaan extends Component {
         <td>{this.props.address}</td>
         <td>{this.props.telephone}</td>
         <td className="text-center"> 
+          <a className='fa fa-check text-info' onClick={() => this.handleDelete(this.props.id)}>Pinjamkan</a>
+          &nbsp;&nbsp;&nbsp;
           <a className='fa fa-times-circle text-danger' onClick={() => this.handleDelete(this.props.id)}>Batal</a>
+       
         </td>
 
       </tr>                

@@ -11,38 +11,51 @@ class Permintaanpinjam extends Component {
 
     state = {
         ListBuku: []
-      };
+    };
     componentDidMount = () => {
         const token = localStorage.getItem("token");
         const self = this;
         axios
-          .get(getAllBook, {
-            headers: {
-              Authorization: "Bearer " + token
-            }
-          })
-          .then(function(response) {
-            // handle success
-            
-            self.setState({ ListBuku: response.data.result });
-                       
-          })
-          .catch(function(error) {
-           
-          });
-      };
-    
+            .get(getAllBook, {
+                headers: {
+                    Authorization: "Bearer " + token
+                }
+            })
+            .then(function (response) {
+                // handle success
+
+                self.setState({ ListBuku: response.data.result });
+
+            })
+            .catch(function (error) {
+
+            });
+    };
+
     render() {
         const ListBuku = this.state.ListBuku
-        var books = []
-        var borrow=[]
-        for (let i= 0; i< ListBuku.length; i++){
-            books.push(ListBuku[i].book)
+        var datas = []
+
+        for(let i= 0; i< ListBuku.length; i++){
+            var fusion = {}
+            for(let key in ListBuku[i]){
+                if(key == "borrower" || key == "book" || key == "owner"){
+                    for(let k in ListBuku[i][key]){
+                        if(k == 'id'){
+                            let idx = key + "_id"
+                            fusion[idx] = ListBuku[i][key][k]
+                        }else{
+                            fusion[k] = ListBuku[i][key][k] 
+                        }
+                    }
+                }else{
+                    fusion[key] = ListBuku[i][key] 
+                }
+            }
+            datas.push(fusion)
         }
-        for (let i= 0; i< ListBuku.length; i++){
-            borrow.push(ListBuku[i].borrower)
-        }
-        console.log( "wkwkw",borrow)
+        console.log(datas)
+
         return (
             <div>
                 <div className="Home">
@@ -51,43 +64,33 @@ class Permintaanpinjam extends Component {
                             <div className="row">
                                 <table className="table table-striped ">
                                     <thead>
-                                        <tr className="text-center border">
-                                        
+                                        <tr className="border">
+
                                             <th>Judul Buku</th>
                                             <th>Nama Peminjam</th>
                                             <th>Alamat</th>
                                             <th>No Telephone</th>
-                                            <th>Action</th>
+                                            <th className='text-center'>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
                                         {
-                                    books.map((item, key) => {
-                                        return (
-                                            <Cardpermintaanpinjam
-                                            key={key}
-                                            title={item.title}
-                                            
-                                            // nama={item.image}
-                                            />
-                                            );
-                                    })
-                                }
-                                  {
-                                    borrow.map((item, key) => {
-                                        return (
-                                            <Cardpermintaanpinjam
-                                            key={key}
-                                            title={item.name}
-                                            address={item.address}
-                                            telephone={item.telephone}
-                                            
-                                            // nama={item.image}
-                                            />
-                                            );
-                                    })
-                                }       
+                                            datas.map((item) => {
+
+                                                return <Cardpermintaanpinjam
+                                                key={item.title}
+                                                title={item.title}
+                                                name={item.name}
+                                                address={item.address}
+                                                telephone={item.telephone}
+                                                />
+                                                
+                                                
+                                            })
+                                        }
+
+
                                     </tbody>
                                 </table>
                             </div>
