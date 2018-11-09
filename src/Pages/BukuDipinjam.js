@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import "../App.css";
 import axios from "axios";
 import Cardbukudipinjam from '../Components/Cardbukudipinjam'
-const getAllBook = "http://192.168.43.193:8000/users/request?filter=borrower&status=true";
+const getAllBook = "https://54.255.166.203:8000/users/request?filter=borrower&status=true";
 class Dipinjam extends Component {
 
     state = {

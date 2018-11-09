@@ -9,7 +9,7 @@ class Cardbukudipinjam extends Component {
     const self = this;
     axios
       .put(
-        "http://192.168.43.193:8000/users/request/" + id,
+        "https://54.255.166.203:8000/users/request/" + id,
         {
          
             request_status:"true"
@@ -38,7 +38,7 @@ class Cardbukudipinjam extends Component {
         Authorization: "Bearer " + token
     } 
     axios
-        .delete("http://192.168.43.193:8000/users/request/" + id , { headers })
+        .delete("https://54.255.166.203:8000/users/request/" + id , { headers })
         .then(result => {
             alert("cancel sucess")
              self.props.history.replace("/bukusaya");
