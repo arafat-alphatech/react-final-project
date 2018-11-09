@@ -26,36 +26,59 @@ class SignUp extends Component{
         this.setState({ address: event.target.value });
       };
     
-      handlePost = event => {
-        event.preventDefault();
+      handlePost = () => {
         const self = this;
-        axios
-          .post(
-            "http://192.168.43.193:8000/users/register",
-            {
-              name: this.state.name,
-              telephone: this.state.telephone,
-              password: this.state.password,
-              address: this.state.address,
+        let number = this.state.telephone
+        number = number.substring(2, number.length)
+        // axios
+        // .post(
+        //   "http://apilayer.net/api/validate?access_key=e015e96242f7db657c2f35fe2936c68c&country_code=ID&format=1&number=" + number,  
+        // )
+        // .then(result => {
+        //   if(result.data.valid){
             
-            }
-          )
-          .then(result => {
-            this.props.token = result.data.token
-            this.props.is_login = true
-            self.props.history.push("/");
-            alert("sucess");
-          })
-          .catch(function(error) {
-            console.log(error);
-            alert("error");
-          });
+            axios
+            .post(
+              "http://192.168.43.193:8000/users/register",
+                {
+                  name: this.state.name,
+                  telephone: this.state.telephone,
+                  password: this.state.password,
+                  address: this.state.address
+                }
+              )
+              .then(result => {
+                self.props.history.push("/verify");
+                localStorage.setItem("name", this.state.name, )
+                localStorage.setItem("telephone", this.state.telephone)
+                localStorage.setItem("password", this.state.password)
+                localStorage.setItem("address", this.state.address)
+                alert("Silahkan verifikasi nomor handphone anda");
+              })
+              .catch(function(error) {
+                console.log(error);
+                alert("error");
+              });
+              
+        //   }
+        //   else{
+        //     alert("Nomor hp tidak valid!");
+        //   }
+              
+        // })
+        // .catch(function(error) {
+        //   console.log(error);
+        //   alert("Error");
+        // });
+
+
+
+
       };
 
     render(){
         return (
             <div>
-
               
                 <div className="container" style={{marginTop: 70}}>
 					<div className="row">
@@ -66,20 +89,20 @@ class SignUp extends Component{
 										<h5 className="card-title">The Books Signup</h5>
 									</div>
 
-									<form className="form-signin" onSubmit={this.handlePost}>
-                                        <div className="form-label-group">
-                                            <input name="name" type="text" className="form-control" placeholder="name" required autoFocus onChange={this.HandleName}/>
-                                        </div>
-                                        <div className="form-label-group">
-                                            <input name="telephone" type="text" className="form-control" placeholder="nomor telepon"  onChange={this.HandleTelp}/>
-                                        </div>
-                                        <div className="form-label-group">
-                                            <input name="password" type="password" className="form-control" placeholder="password" required onChange={this.HandlePassword}/>
-                                        </div>
-                                        <div className="form-label-group">
-                                            <input name="address" type="text" className="form-control" placeholder="alamat" required onChange={this.HandleAddress}/>
-                                        </div>
-                                        <button className="btn btn-lg btn-primary btn-block text-uppercase" >Sign up </button >
+									<form className="form-signin" onSubmit={(event) => event.preventDefault()}>
+                    <div className="form-label-group">
+                        <input name="name" type="text" className="form-control" placeholder="name" required autoFocus onChange={this.HandleName}/>
+                    </div>
+                    <div className="form-label-group">
+                        <input name="telephone" type="text" className="form-control" placeholder="nomor telepon: 628xxxxxxxxxx"  onChange={this.HandleTelp}/>
+                    </div>
+                    <div className="form-label-group">
+                        <input name="password" type="password" className="form-control" placeholder="password" required onChange={this.HandlePassword}/>
+                    </div>
+                    <div className="form-label-group">
+                        <input name="address" type="text" className="form-control" placeholder="alamat" required onChange={this.HandleAddress}/>
+                    </div>
+                    <button className="btn btn-lg btn-primary btn-block text-uppercase" data-toggle="verifycode" data-target="#verifycode1" onClick={this.handlePost}>Sign up </button >
 									</form>
 								</div>
 								<div className="text-center" style={{marginBottom: 20}}>
@@ -89,11 +112,11 @@ class SignUp extends Component{
 						</div>
 					</div>
                 </div>
-               
             </div>
         )
     }
 }
+// 6281259162085
 
 // export default SignUp;
 export default connect("listBooks, token, is_login, type", actions)(withRouter(SignUp))

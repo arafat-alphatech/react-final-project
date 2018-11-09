@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Link, withRouter, Redirect } from 'react-router-dom' 
+import { Link, withRouter } from 'react-router-dom' 
 import axios from "axios";
-
 
 import { connect } from "unistore/react";
 import { actions } from "../store";
@@ -26,7 +25,8 @@ class SignIn extends Component {
 		  .then(function(response) {
 			console.log("ayam", response);
 			if (response.data) {
-			  localStorage.setItem("token", response.data.token);
+
+				localStorage.setItem("token", response.data.token);
 				localStorage.setItem("is_login", true);
 				
 			  self.props.history.push("/bukusaya");
@@ -34,18 +34,13 @@ class SignIn extends Component {
 			} 
 		  })
 		  .catch(function(error) {
-			console.log(error);
-			alert("Maaf telepon atau password anda tidak valid");
+				console.log(error);
+				alert("Maaf telepon atau password anda tidak valid");
 		  });
 	  };
-	
 
 	render() {
 
-		if (this.props.is_login){
-			return <Redirect to={{pathname: "/"}} />
-		} 
-		
 		return (
 	  
 	  	<div>
@@ -64,13 +59,7 @@ class SignIn extends Component {
 										<input name="telephone" type="text" className="form-control" placeholder="nomor handphone" required autoFocus onChange={(e) => this.changeInput(e)}/>
 										</div>
 									<div className="form-label-group">
-										<input name="password" type="text" className="form-control" placeholder="password" required onChange={(e) => this.changeInput(e)}/>
-										{
-											this.props.login_failed ?
-											<small><i className="text-danger">username atau password anda salah!</i></small>
-											:
-											""
-										}
+										<input name="password" type="password" className="form-control" placeholder="password" required onChange={(e) => this.changeInput(e)}/>
 									</div>
 										<Link to="/signin" id='signin' onClick={() => this.postLogin()} className="btn btn-lg btn-primary btn-block text-uppercase" id='signin'>Sign in</Link>
 								</form>
@@ -89,5 +78,5 @@ class SignIn extends Component {
 	}
 }
 
-// export default SignIn;
-export default connect("listBooks, login_failed, token, is_login, type", actions)(withRouter(SignIn))
+export default connect("listBooks, is_login", actions)(withRouter(SignIn))
+
