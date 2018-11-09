@@ -47,7 +47,6 @@ class Dipinjam extends Component {
             books.push(data)
         }
 
-        console.log(books)
         return (
 
             <div >

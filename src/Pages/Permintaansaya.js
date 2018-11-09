@@ -42,7 +42,6 @@ class Permintaansaya extends Component {
             books.push(data)
         }
 
-        console.log("hasil",books)
 
         return (
             <div>
