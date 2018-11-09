@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import axios from "axios";
 import { withRouter } from "react-router-dom";
 
-class Cardpermintaan extends Component {
+class Cardbukudipinjam extends Component {
 
   handleput = id => { 
     let token = localStorage.getItem("token");
@@ -29,9 +30,6 @@ class Cardpermintaan extends Component {
       });
   };
 
-
-
-
   handleDelete = id => { 
 
     let token = localStorage.getItem("token");
@@ -49,30 +47,28 @@ class Cardpermintaan extends Component {
             console.log(error)
             alert('error')
         })
+  }
 
-}
   render() {
     const route = '/edit/' + this.props.id
 
     return (
         
       <tr>
-        <td>{this.props.title} </td>
+        <td>{this.props.title}</td>
+        <td>{this.props.category}</td>
+        <td>{this.props.condition}</td>
+        <td>{this.props.start_date}</td>
+        <td>{this.props.end_date}</td>
         <td>{this.props.name}</td>
-        <td>{this.props.address}</td>
-        <td>{this.props.telephone}</td>
-        <td className="text-center"> 
-          <a className='fa fa-check text-info' onClick={() => this.handleput(this.props.id)}>Pinjamkan</a>
-          &nbsp;&nbsp;&nbsp;
-          <a className='fa fa-times-circle text-danger' onClick={() => this.handleDelete(this.props.id)}>Batal</a>
-       
+        <td>
+            {/* <button type="button" className="btn btn-sm btn-primary" onClick={ this.handleKembalikan(this.props.req_id) }> Kembalikan </button> */}
         </td>
-
-      </tr>                
+      </tr>            
                 
       
     );
   }
 }
 
-export default withRouter (Cardpermintaan);
+export default withRouter (Cardbukudipinjam);
